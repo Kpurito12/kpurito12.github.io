@@ -1,26 +1,31 @@
 <?php
+	$data = date('d/m/Y', time());
 
-	$nombre = $_POST['name'];
-	$correo = $_POST['email'];
-	$asunto = $_POST['subject'];
-	$mensaje = $_POST['message'];
+	$nombreCliente = $_POST['name'];
+	$asuntoCliente = $_POST['subject'];
+	$mensajeCliente = $_POST['message'];
+	$correoCliente = $_POST['email'];
 
-	$headers = 'From: ' . $mensaje . " \r\n";
-	$headers .= "Reply-To: " . $mensaje . " \r\n";
-	$headers .= "X-Mailer: PHP/" . phpversion() . " \r\n";
+	$headers = 'From: ' .$correoCliente. " \r\n";
+	$headers .= "Reply-To: " .$correoCliente. " \r\n";
+	$headers .= "X-Mailer: PHP/" .phpversion(). " \r\n";
 	$headers .= "Mime-Version: 1.0 \r\n";
 	$headers .= "Content-Type: text/plain";
 
-	$mensaje  = "Nombre: " . $nombre . "\r\n";
-	$mensaje .= "Correo de contacto: " . $correo . " \r\n";
-	$mensaje .= "Asunto: " . $asunto . " \r\n";
-	$mensaje .= "Mensaje: " . $mensaje . " \r\n";
-	$mensaje .= "Enviado el " . date('d/m/Y', time());
+	$mensaje  = "Nombre: " .$nombreCliente. "\r\n";
+	$mensaje .= "Asunto: " .$asuntoCliente. " \r\n";
+	$mensaje .= "Mensaje: " .$mensajeCliente. " \r\n";
+	$mensaje .= "Correo: " .$correoCliente. " \r\n";
+	$mensaje .= "Enviado el " .$data;
 
-	$destinatario = "kpurito12@gmail.com";
-	$asunto = "CURRÍCULUM PAGINA WEB " . date('d/m/Y', time());
+	$destinatario = "cuentasinterkpo@hotmail.com";
+	$asunto = "CURRICULUM PAGINA WEB " .$data;
 
-	mail($destinatario, $asunto, utf8_decode($mensaje), $headers);
-	header("Location: ../");
+	if (mail($destinatario, $asunto, utf8_decode($mensaje), $headers)) {
+		echo "OK";
+	} else {
+		echo "ERROR";
+	}
 
+	// header("Location: ../");
 ?>
