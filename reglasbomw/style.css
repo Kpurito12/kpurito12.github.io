@@ -56,3 +56,27 @@ a:last-child {
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
   }
 }
+
+/* /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/- */
+
+.gif-left, .gif-right {
+	position: fixed;
+	top: 50%;
+	width: 100px;
+	z-index: 999;
+}
+
+.gif-left {
+	left: 100px;
+	transform: scaleX(-1);
+}
+
+.gif-right {
+	right: 100px;
+}
+
+.bigDick img {
+	width: 150px;
+}
+
+/* /-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/- */
